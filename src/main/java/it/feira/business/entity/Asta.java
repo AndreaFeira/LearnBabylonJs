@@ -10,6 +10,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
@@ -21,6 +23,11 @@ import javax.xml.bind.annotation.XmlTransient;
  *
  * @author Andrea Feira
  */
+@NamedQueries({
+    @NamedQuery(name = "Asta.auctionInProgress",
+            query = "select e from Asta e where e.dataScadenza > CURRENT_TIMESTAMP")
+}
+)
 @Entity
 @XmlRootElement
 public class Asta implements Serializable {
@@ -32,7 +39,7 @@ public class Asta implements Serializable {
     private Date dataCreazione;
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataScadenza;
-    
+
     //Relations
     @ManyToOne
     private Utente owner;
@@ -51,7 +58,7 @@ public class Asta implements Serializable {
         this.art = art;
         this.offerte = offerte;
     }
-    
+
     public Long getId() {
         return id;
     }
@@ -101,7 +108,6 @@ public class Asta implements Serializable {
         this.offerte = offerte;
     }
 
-    
     @Override
     public int hashCode() {
         int hash = 7;
