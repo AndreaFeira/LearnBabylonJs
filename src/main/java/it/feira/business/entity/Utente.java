@@ -7,13 +7,21 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
 /**
  *
  * @author Andrea Feira
  */
+@NamedQueries({
+    @NamedQuery(name = "Utente.findByUsrPwd",
+            query = "select e from Utente e where e.nome= :nome and e.password= :password"),
+    @NamedQuery(name = "Utente.findByName",
+            query = "select e from Utente e where e.nome like :nome")
+}
+)
 @Entity
 public class Utente implements Serializable {
 

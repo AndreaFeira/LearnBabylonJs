@@ -24,4 +24,16 @@ public class UtenteFacade extends AbstractFacade<Utente> {
         super(Utente.class);
     }
 
+    public Utente findByUsrPwd(String nome, String pwd) {
+        return em.createNamedQuery("Utente.findByUsrPwd", Utente.class)
+                .setParameter("nome", nome)
+                .setParameter("password", pwd)
+                .getSingleResult();
+    }
+
+    public Utente findByName(String nome) {
+        return em.createNamedQuery("Utente.findByName", Utente.class)
+                .setParameter("nome", nome)
+                .getSingleResult();
+    }
 }
