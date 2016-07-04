@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./template.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="body">
+        <h:form id="UtenteCreateForm">
+            <h:panelGroup id="display">
+                <p:panelGrid columns="2" rendered="#{utenteController.selected != null}">
+                    <p:outputLabel value="#{bundle.CreateUtenteLabel_cognome}" for="cognome" />
+                    <p:inputText id="cognome" value="#{registration.utente.cognome}" title="#{bundle.CreateUtenteTitle_cognome}" />
+                    
+                    <p:outputLabel value="#{bundle.CreateUtenteLabel_nome}" for="nome" />
+                    <p:inputText id="nome" value="#{registration.utente.nome}" title="#{bundle.CreateUtenteTitle_nome}" />
+                    
+                    <p:outputLabel value="#{bundle.CreateUtenteLabel_email}" for="email" />
+                    <p:inputText id="email" value="#{registration.utente.email}" title="#{bundle.CreateUtenteTitle_email}" />
+                    
+                    <h:outputLabel value="password"/>
+                    <h:inputSecret id="pwd" 
+                                   value="#{registration.utente.password}"  
+                                   required="true" 
+                                   requiredMessage="Password obbligatoria"
+                                   validatorMessage="Il campo non è valido">
+                        <f:validateLength minimum="6" />
+                        <h:message for="pwd"  style="display: block"/>
+
+                    </h:inputSecret>
+
+                </p:panelGrid>
+                <h:commandButton value="Salva" action="#{registration.onRegistation()}" />
+
+            </h:panelGroup>
+        </h:form>
+    </ui:define>
+
+</ui:composition>

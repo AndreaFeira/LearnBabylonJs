@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/template.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <ui:define name="body">
+        <h:form  class="w3-container">
+            <h:outputLabel value="Inserisci il tuo nickname" />
+            <h:inputText id="nick" class="w3-input" value="#{login.usr.nome}" required="true" requiredMessage="Nick obbligatorio!"/>
+            <h:message for="nick" />
+
+            <h:outputLabel value="Inserisci la password" />
+            <h:inputSecret id="pass" class="w3-input" value="#{login.usr.password}" required="true" requiredMessage="Password obbligatoria" />
+            <h:message for="pass" />
+
+            <h:commandButton value="Login" class="w3-btn w3-theme-action" action="#{login.onRegistration()}" />
+        </h:form>
+    </ui:define>
+
+</ui:composition>
