@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -23,6 +25,7 @@ import javax.persistence.OneToMany;
 }
 )
 @Entity
+@XmlRootElement
 public class Utente implements Serializable {
 
     @Id
@@ -95,6 +98,7 @@ public class Utente implements Serializable {
         this.password = password;
     }
 
+    @XmlTransient
     public List<Articolo> getArticoli() {
         return articoli;
     }
@@ -103,6 +107,7 @@ public class Utente implements Serializable {
         this.articoli = articoli;
     }
 
+    @XmlTransient
     public List<Asta> getAste() {
         return aste;
     }
@@ -111,6 +116,7 @@ public class Utente implements Serializable {
         this.aste = aste;
     }
 
+    @XmlTransient
     public List<Offerta> getOfferte() {
         return offerte;
     }

@@ -14,12 +14,15 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
  * @author Andrea Feira
  */
 @Entity
+@XmlRootElement
 public class Asta implements Serializable {
 
     @Id
@@ -89,6 +92,7 @@ public class Asta implements Serializable {
         this.art = art;
     }
 
+    @XmlTransient
     public List<Offerta> getOfferte() {
         return offerte;
     }
