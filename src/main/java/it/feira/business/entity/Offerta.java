@@ -62,6 +62,22 @@ public class Offerta implements Serializable {
     public void setDataOfferta(Date dataOfferta) {
         this.dataOfferta = dataOfferta;
     }
+
+    public Utente getOfferente() {
+        return offerente;
+    }
+
+    public void setOfferente(Utente offerente) {
+        this.offerente = offerente;
+    }
+
+    public Asta getAsta() {
+        return asta;
+    }
+
+    public void setAsta(Asta asta) {
+        this.asta = asta;
+    }
     
     @Override
     public int hashCode() {

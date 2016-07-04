@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ArticoloViewDlg" widgetVar="ArticoloViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewArticoloTitle}">
+            <h:form id="ArticoloViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{articoloController.selected != null}">
+                        <h:outputText value="#{bundle.ViewArticoloLabel_nome}"/>
+                        <h:outputText value="#{articoloController.selected.nome}" title="#{bundle.ViewArticoloTitle_nome}"/>
+                        <h:outputText value="#{bundle.ViewArticoloLabel_prezzo}"/>
+                        <h:outputText value="#{articoloController.selected.prezzo}" title="#{bundle.ViewArticoloTitle_prezzo}"/>
+                        <h:outputText value="#{bundle.ViewArticoloLabel_image}"/>
+                        <h:outputText value="#{articoloController.selected.image}" title="#{bundle.ViewArticoloTitle_image}"/>
+                        <h:outputText value="#{bundle.ViewArticoloLabel_proprietario}"/>
+                        <h:outputText value="#{articoloController.selected.proprietario}" title="#{bundle.ViewArticoloTitle_proprietario}"/>
+                        <h:outputText value="#{bundle.ViewArticoloLabel_asta}"/>
+                        <h:outputText value="#{articoloController.selected.asta}" title="#{bundle.ViewArticoloTitle_asta}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="ArticoloViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

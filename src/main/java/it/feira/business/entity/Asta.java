@@ -125,7 +125,7 @@ public class Asta implements Serializable {
 
     @Override
     public String toString() {
-        return "it.feira.business.entity.Asta[ id=" + id + " ]";
+        return "Articolo in asta: " + art.getNome();
     }
 
 }

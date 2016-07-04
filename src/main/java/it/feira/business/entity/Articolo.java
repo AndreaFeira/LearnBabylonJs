@@ -115,7 +115,7 @@ public class Articolo implements Serializable {
 
     @Override
     public String toString() {
-        return "it.feira.business.entity.Articolo[ id=" + id + " ]";
+        return nome;
     }
 
 }

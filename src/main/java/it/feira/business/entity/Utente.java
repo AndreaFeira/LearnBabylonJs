@@ -131,7 +131,7 @@ public class Utente implements Serializable {
 
     @Override
     public String toString() {
-        return "it.feira.business.entity.Utente[ id=" + id + " ]";
+        return nome;
     }
 
 }
