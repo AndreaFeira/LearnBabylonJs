@@ -18,8 +18,16 @@
                         <p:inputText id="nome" value="#{utenteController.selected.nome}" title="#{bundle.EditUtenteTitle_nome}" />
                         <p:outputLabel value="#{bundle.EditUtenteLabel_email}" for="email" />
                         <p:inputText id="email" value="#{utenteController.selected.email}" title="#{bundle.EditUtenteTitle_email}" />
-                        <p:outputLabel value="#{bundle.EditUtenteLabel_password}" for="password" />
-                        <p:inputText id="password" value="#{utenteController.selected.password}" title="#{bundle.EditUtenteTitle_password}" />
+                    <h:outputLabel value="password"/>
+                    <h:inputSecret id="pwd" 
+                                   value="#{registration.utente.password}"  
+                                   required="true" 
+                                   requiredMessage="Password obbligatoria"
+                                   validatorMessage="Il campo non è valido">
+                        <f:validateLength minimum="6" />
+                        <h:message for="pwd"  style="display: block"/>
+
+                    </h:inputSecret>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{utenteController.update}" value="#{bundle.Save}" update="display,:UtenteListForm:datalist,:growl" oncomplete="handleSubmit(args, 'UtenteEditDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="UtenteEditDialog.hide()"/>
