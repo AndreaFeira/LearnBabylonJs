@@ -47,13 +47,13 @@
                                 <f:facet name="header">
                                     <h:outputText value="#{bundle.ListAstaTitle_owner}"/>
                                 </f:facet>
-                                <h:outputText value="#{item.owner}"/>
+                                <h:outputText value="#{item.owner.nome}"/>
                             </p:column>
                             <p:column>
                                 <f:facet name="header">
                                     <h:outputText value="#{bundle.ListAstaTitle_art}"/>
                                 </f:facet>
-                                <h:outputText value="#{item.art}"/>
+                                <h:outputText value="#{item.art.nome}"/>
                             </p:column>
                             <f:facet name="footer">
                                 <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{astaController.prepareCreate}" update=":AstaCreateForm" oncomplete="PF('AstaCreateDialog').show()"/>

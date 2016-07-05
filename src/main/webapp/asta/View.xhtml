@@ -21,9 +21,9 @@
                             <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
                         </h:outputText>
                         <h:outputText value="#{bundle.ViewAstaLabel_owner}"/>
-                        <h:outputText value="#{astaController.selected.owner}" title="#{bundle.ViewAstaTitle_owner}"/>
+                        <h:outputText value="#{astaController.selected.owner.nome}" title="#{bundle.ViewAstaTitle_owner}"/>
                         <h:outputText value="#{bundle.ViewAstaLabel_art}"/>
-                        <h:outputText value="#{astaController.selected.art}" title="#{bundle.ViewAstaTitle_art}"/>
+                        <h:outputText value="#{astaController.selected.art.nome}" title="#{bundle.ViewAstaTitle_art}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="AstaViewDialog.hide()"/>
                 </h:panelGroup>
