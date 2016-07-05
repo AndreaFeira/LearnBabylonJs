@@ -7,32 +7,28 @@
                 xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <ui:define name="body">
-        <ui:remove>
             <h:form> 
-                <p:dataScroller value="#{dataScrollerView.cars}" var="car" chunkSize="10">
+                <p:dataScroller value="#{index.asteInCorso}" var="asta" chunkSize="10">
                     <f:facet name="header">
-                        Scroll Down to Load More Auctions
+                        Aste in corso
                     </f:facet>
 
                     <h:panelGrid columns="2" style="width:100%" columnClasses="logo,detail">
-                        <p:graphicImage name="demo/images/car/#{car.brand}-big.gif" /> 
+                        <ui:remove><p:graphicImage name="demo/images/car/#{car.brand}-big.gif" /></ui:remove> 
 
                         <p:outputPanel>
                             <h:panelGrid columns="2" cellpadding="5">
-                                <h:outputText value="Data creazione:" />
-                                <h:outputText value="" style="font-weight: bold"/>
+                                <h:outputText value="Articolo" />
+                                <h:outputText value="#{asta.art.nome}" style="font-weight: bold"/>
 
                                 <h:outputText value="Data scadenza" />
-                                <h:outputText value="#{car.year}" style="font-weight: bold"/>
-
-                                <h:outputText value="Color:" />
-                                <h:outputText value="#{car.color}" style="font-weight: bold"/>
+                                <h:outputText value="#{asta.dataScadenza}" style="font-weight: bold"/>
+                                
                             </h:panelGrid>
                         </p:outputPanel>
                     </h:panelGrid>
                 </p:dataScroller>
             </h:form>
-        </ui:remove>
     </ui:define>
 
 </ui:composition>
