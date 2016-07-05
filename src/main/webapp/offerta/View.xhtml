@@ -21,7 +21,7 @@
                         <h:outputText value="#{bundle.ViewOffertaLabel_offerente}"/>
                         <h:outputText value="#{offertaController.selected.offerente.nome}" title="#{bundle.ViewOffertaTitle_offerente}"/>
                         <h:outputText value="#{bundle.ViewOffertaLabel_asta}"/>
-                        <h:outputText value="#{offertaController.selected.asta}" title="#{bundle.ViewOffertaTitle_asta}"/>
+                        <h:outputText value="#{offertaController.selected.asta.art.nome}" title="#{bundle.ViewOffertaTitle_asta}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="OffertaViewDialog.hide()"/>
                 </h:panelGroup>

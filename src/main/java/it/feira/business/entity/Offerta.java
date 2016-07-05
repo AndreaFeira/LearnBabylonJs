@@ -11,6 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
+import org.eclipse.persistence.jpa.jpql.parser.DateTime;
 
 /**
  *
@@ -26,7 +27,7 @@ public class Offerta implements Serializable {
     private Double cifra;
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataOfferta;
-    
+
     //Relations
     @ManyToOne
     private Utente offerente;
@@ -34,13 +35,14 @@ public class Offerta implements Serializable {
     private Asta asta;
 
     public Offerta() {
+        dataOfferta = new Date();
     }
 
     public Offerta(Double cifra, Date dataOfferta) {
         this.cifra = cifra;
         this.dataOfferta = dataOfferta;
     }
-    
+
     public Long getId() {
         return id;
     }
@@ -80,7 +82,7 @@ public class Offerta implements Serializable {
     public void setAsta(Asta asta) {
         this.asta = asta;
     }
-    
+
     @Override
     public int hashCode() {
         int hash = 7;

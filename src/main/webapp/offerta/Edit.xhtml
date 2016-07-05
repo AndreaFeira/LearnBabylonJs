@@ -7,35 +7,37 @@
       xmlns:p="http://primefaces.org/ui">
 
     <ui:composition>
-
-        <p:dialog id="OffertaEditDlg" widgetVar="OffertaEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditOffertaTitle}">
-            <h:form id="OffertaEditForm">
-                <h:panelGroup id="display">
-                    <p:panelGrid columns="2" rendered="#{offertaController.selected != null}">
-                        <p:outputLabel value="#{bundle.EditOffertaLabel_cifra}" for="cifra" />
-                        <p:inputText id="cifra" value="#{offertaController.selected.cifra}" title="#{bundle.EditOffertaTitle_cifra}" />
-                        <p:outputLabel value="#{bundle.EditOffertaLabel_dataOfferta}" for="dataOfferta" />
-                        <p:calendar id="dataOfferta" pattern="MM/dd/yyyy HH:mm:ss" value="#{offertaController.selected.dataOfferta}" title="#{bundle.EditOffertaTitle_dataOfferta}"  showOn="button"/>
-                        <p:outputLabel value="#{bundle.EditOffertaLabel_offerente}" for="offerente" />
-                        <p:selectOneMenu id="offerente" value="#{offertaController.selected.offerente}" >
-                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                            <f:selectItems value="#{utenteController.itemsAvailableSelectOne}"
-                                           var="offerenteItem"
-                                           itemValue="#{offerenteItem}"/>
-                        </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.EditOffertaLabel_asta}" for="asta" />
-                        <p:selectOneMenu id="asta" value="#{offertaController.selected.asta}" >
-                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                            <f:selectItems value="#{astaController.itemsAvailableSelectOne}"
-                                           var="astaItem"
-                                           itemValue="#{astaItem}"/>
-                        </p:selectOneMenu>
-                    </p:panelGrid>
-                    <p:commandButton actionListener="#{offertaController.update}" value="#{bundle.Save}" update="display,:OffertaListForm:datalist,:growl" oncomplete="handleSubmit(args, 'OffertaEditDialog');"/>
-                    <p:commandButton value="#{bundle.Cancel}" onclick="OffertaEditDialog.hide()"/>
-                </h:panelGroup>
-            </h:form>
-        </p:dialog>
-
+        
+        <!--EDIT OFFERTA DISABILITATO-->
+        <ui:remove>
+            <p:dialog id="OffertaEditDlg" widgetVar="OffertaEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditOffertaTitle}">
+                <h:form id="OffertaEditForm">
+                    <h:panelGroup id="display">
+                        <p:panelGrid columns="2" rendered="#{offertaController.selected != null}">
+                            <p:outputLabel value="#{bundle.EditOffertaLabel_cifra}" for="cifra" />
+                            <p:inputText id="cifra" value="#{offertaController.selected.cifra}" title="#{bundle.EditOffertaTitle_cifra}" />
+                            <p:outputLabel value="#{bundle.EditOffertaLabel_dataOfferta}" for="dataOfferta" />
+                            <p:calendar id="dataOfferta" pattern="MM/dd/yyyy HH:mm:ss" value="#{offertaController.selected.dataOfferta}" title="#{bundle.EditOffertaTitle_dataOfferta}"  showOn="button"/>
+                            <p:outputLabel value="#{bundle.EditOffertaLabel_offerente}" for="offerente" />
+                            <p:selectOneMenu id="offerente" value="#{offertaController.selected.offerente}" >
+                                <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                                <f:selectItems value="#{utenteController.itemsAvailableSelectOne}"
+                                               var="offerenteItem"
+                                               itemValue="#{offerenteItem}"/>
+                            </p:selectOneMenu>
+                            <p:outputLabel value="#{bundle.EditOffertaLabel_asta}" for="asta" />
+                            <p:selectOneMenu id="asta" value="#{offertaController.selected.asta}" >
+                                <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                                <f:selectItems value="#{astaController.itemsAvailableSelectOne}"
+                                               var="astaItem"
+                                               itemValue="#{astaItem}"/>
+                            </p:selectOneMenu>
+                        </p:panelGrid>
+                        <p:commandButton actionListener="#{offertaController.update}" value="#{bundle.Save}" update="display,:OffertaListForm:datalist,:growl" oncomplete="handleSubmit(args, 'OffertaEditDialog');"/>
+                        <p:commandButton value="#{bundle.Cancel}" onclick="OffertaEditDialog.hide()"/>
+                    </h:panelGroup>
+                </h:form>
+            </p:dialog>
+        </ui:remove>
     </ui:composition>
 </html>
