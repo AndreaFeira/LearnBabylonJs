@@ -49,10 +49,11 @@ public class Asta implements Serializable {
     private List<Offerta> offerte;
 
     public Asta() {
+        this.dataCreazione = new Date();
     }
 
     public Asta(Date dataCreazione, Date dataScadenza, Utente owner, Articolo art, List<Offerta> offerte) {
-        this.dataCreazione = dataCreazione;
+        this.dataCreazione = new Date();
         this.dataScadenza = dataScadenza;
         this.owner = owner;
         this.art = art;
@@ -69,10 +70,6 @@ public class Asta implements Serializable {
 
     public Date getDataCreazione() {
         return dataCreazione;
-    }
-
-    public void setDataCreazione(Date dataCreazione) {
-        this.dataCreazione = dataCreazione;
     }
 
     public Date getDataScadenza() {

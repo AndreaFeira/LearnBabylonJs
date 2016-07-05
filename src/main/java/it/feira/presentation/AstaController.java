@@ -19,15 +19,15 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
-
 @Named("astaController")
 @SessionScoped
 public class AstaController implements Serializable {
 
-
-    @EJB private it.feira.business.boundary.AstaFacade ejbFacade;
+    @EJB
+    private it.feira.business.boundary.AstaFacade ejbFacade;
     private List<Asta> items = null;
     private Asta selected;
+
 
     public AstaController() {
     }
@@ -82,6 +82,7 @@ public class AstaController implements Serializable {
         return items;
     }
 
+
     private void persist(PersistAction persistAction, String successMessage) {
         if (selected != null) {
             setEmbeddableKeys();
@@ -122,7 +123,7 @@ public class AstaController implements Serializable {
         return getFacade().findAll();
     }
 
-    @FacesConverter(forClass=Asta.class)
+    @FacesConverter(forClass = Asta.class)
     public static class AstaControllerConverter implements Converter {
 
         @Override
@@ -130,7 +131,7 @@ public class AstaController implements Serializable {
             if (value == null || value.length() == 0) {
                 return null;
             }
-            AstaController controller = (AstaController)facesContext.getApplication().getELResolver().
+            AstaController controller = (AstaController) facesContext.getApplication().getELResolver().
                     getValue(facesContext.getELContext(), null, "astaController");
             return controller.getAsta(getKey(value));
         }

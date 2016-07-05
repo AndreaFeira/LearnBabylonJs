@@ -25,13 +25,6 @@
                                            var="proprietarioItem"
                                            itemValue="#{proprietarioItem}"/>
                         </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.EditArticoloLabel_asta}" for="asta" />
-                        <p:selectOneMenu id="asta" value="#{articoloController.selected.asta}" >
-                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                            <f:selectItems value="#{astaController.itemsAvailableSelectOne}"
-                                           var="astaItem"
-                                           itemValue="#{astaItem}"/>
-                        </p:selectOneMenu>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{articoloController.update}" value="#{bundle.Save}" update="display,:ArticoloListForm:datalist,:growl" oncomplete="handleSubmit(args, 'ArticoloEditDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="ArticoloEditDialog.hide()"/>

@@ -12,8 +12,6 @@
             <h:form id="AstaCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{astaController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateAstaLabel_dataCreazione}" for="dataCreazione" />
-                        <p:calendar id="dataCreazione" pattern="MM/dd/yyyy HH:mm:ss" value="#{astaController.selected.dataCreazione}" title="#{bundle.EditAstaTitle_dataCreazione}"  showOn="button"/>
                         <p:outputLabel value="#{bundle.CreateAstaLabel_dataScadenza}" for="dataScadenza" />
                         <p:calendar id="dataScadenza" pattern="MM/dd/yyyy HH:mm:ss" value="#{astaController.selected.dataScadenza}" title="#{bundle.EditAstaTitle_dataScadenza}"  showOn="button"/>
                         <p:outputLabel value="#{bundle.CreateAstaLabel_owner}" for="owner" />
