@@ -30,10 +30,23 @@ public class UtenteFacade extends AbstractFacade<Utente> {
                 .setParameter("password", pwd)
                 .getSingleResult();
     }
+    
+    public Utente findByEmailPwd(String email, String pwd) {
+        return em.createNamedQuery("Utente.findByEmailPwd", Utente.class)
+                .setParameter("email", email)
+                .setParameter("password", pwd)
+                .getSingleResult();
+    }
 
     public Utente findByName(String nome) {
         return em.createNamedQuery("Utente.findByName", Utente.class)
                 .setParameter("nome", nome)
+                .getSingleResult();
+    }
+    
+    public Utente findByEmail(String email) {
+        return em.createNamedQuery("Utente.findByEmail", Utente.class)
+                .setParameter("email", email)
                 .getSingleResult();
     }
 }

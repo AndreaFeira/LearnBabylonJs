@@ -7,9 +7,9 @@
                 xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <ui:define name="body">
-        <h:form id="UtenteCreateForm">
+        <h:form id="Registration">
             <h:panelGroup id="display">
-                <p:panelGrid columns="2" rendered="#{utenteController.selected != null}">
+                <p:panelGrid columns="2">
                     <p:outputLabel value="#{bundle.CreateUtenteLabel_cognome}" for="cognome" />
                     <p:inputText id="cognome" value="#{registration.utente.cognome}" title="#{bundle.CreateUtenteTitle_cognome}" />
                     

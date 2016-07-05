@@ -4,7 +4,9 @@ import it.feira.business.entity.Utente;
 import it.feira.presentation.SessionData;
 import javax.ejb.EJBException;
 import javax.ejb.Stateless;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  *
@@ -22,9 +24,9 @@ public class Security {
     @Inject
     SessionData sessionData;
 
-    public boolean login(String usr, String pwd) {
+    public boolean login(String email, String pwd) {
         try {
-            Utente u = utenteSrv.findByUsrPwd(usr, pwd);
+            Utente u = utenteSrv.findByEmailPwd(email, pwd);
             usersCache.addUser(u);
             return true;
         } catch (EJBException ex) {
@@ -33,11 +35,14 @@ public class Security {
 
     }
 
-    public void logout() {
-        logout(utenteSrv.findByName(sessionData.getLoggedUser()));
+    public String logout() {
+        return logout(utenteSrv.findByEmail(sessionData.getLoggedUser()));
     }
 
-    public void logout(Utente u) {
+    public String logout(Utente u) {
         usersCache.removeUser(u);
+        HttpServletRequest req = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
+        req.getSession().invalidate();
+        return "/index.jsf?faces-redirect=true";
     }
 }

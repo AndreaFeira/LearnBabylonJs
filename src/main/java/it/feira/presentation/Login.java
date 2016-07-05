@@ -16,18 +16,18 @@ import javax.inject.Named;
  */
 @Named(value = "login")
 @RequestScoped
-public class Login implements Serializable{
-    
+public class Login implements Serializable {
+
     @Inject
     Security security;
-    
+
     @Inject
     SessionData sessionData;
-    
+
     private Utente usr;
-    
+
     @PostConstruct
-    public void init(){
+    public void init() {
         usr = new Utente();
     }
 
@@ -38,13 +38,13 @@ public class Login implements Serializable{
     public void setUsr(Utente usr) {
         this.usr = usr;
     }
-    
-    public String onRegistration(){
-        
-        boolean login = security.login(usr.getNome(), usr.getPassword());
-        
+
+    public String onRegistration() {
+
+        boolean login = security.login(usr.getEmail(), usr.getPassword());
+
         if (login) {
-            sessionData.setLoggedUser(usr.getNome());
+            sessionData.setLoggedUser(usr.getEmail());
             return "/index.tss?faces-redirect=true";
         } else {
             FacesContext.getCurrentInstance().addMessage("Login errata", new FacesMessage("Login errata"));
@@ -52,6 +52,8 @@ public class Login implements Serializable{
         }
     }
     
-    
+//    public String onLogout(){
+//        
+//    }
 
 }

@@ -21,7 +21,11 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Utente.findByUsrPwd",
             query = "select e from Utente e where e.nome= :nome and e.password= :password"),
     @NamedQuery(name = "Utente.findByName",
-            query = "select e from Utente e where e.nome like :nome")
+            query = "select e from Utente e where e.nome like :nome"),
+    @NamedQuery(name = "Utente.findByEmail",
+            query = "select e from Utente e where e.email like :email"),
+    @NamedQuery(name = "Utente.findByEmailPwd",
+            query = "select e from Utente e where e.email like :email and e.password= :password")
 }
 )
 @Entity
@@ -35,7 +39,6 @@ public class Utente implements Serializable {
     private String nome;
     private String email;
     private String password;
-    
 
     //Relations
     @OneToMany
